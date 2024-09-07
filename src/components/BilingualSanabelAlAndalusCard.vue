@@ -239,7 +239,6 @@ const handleScroll = () => {
 .card {
   width: 100%;
   max-width: 700px;
-  aspect-ratio: 16 / 9;
   position: relative;
   transition: transform 0.6s;
   transform-style: preserve-3d;
@@ -263,6 +262,7 @@ const handleScroll = () => {
   height: 100%;
   backface-visibility: hidden;
   display: flex;
+  flex-direction: column;
 }
 
 .card-back {
@@ -271,10 +271,10 @@ const handleScroll = () => {
 
 .left-section, .right-section {
   flex: 1;
-  padding: clamp(20px, 5vw, 40px);
+  padding: clamp(15px, 3vw, 40px);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .left-section {
@@ -282,61 +282,172 @@ const handleScroll = () => {
 }
 
 .logo {
-  font-size: clamp(36px, 8vw, 48px);
+  font-size: clamp(24px, 6vw, 48px);
   font-weight: 600;
   color: #495057;
   transition: all 0.3s ease;
 }
 
 .paw-print {
-  font-size: clamp(48px, 10vw, 64px);
+  font-size: clamp(32px, 8vw, 64px);
 }
 
 .company-name {
-  font-size: clamp(20px, 4vw, 28px);
+  font-size: clamp(16px, 3vw, 28px);
   font-weight: 600;
-  margin: 15px 0;
+  margin: 10px 0;
   color: #343a40;
   text-transform: uppercase;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
   transition: all 0.3s ease;
 }
 
 .personal-info {
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 .name {
-  font-size: clamp(18px, 3.5vw, 24px);
+  font-size: clamp(16px, 3vw, 24px);
   font-weight: 600;
   margin: 0;
   color: #343a40;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
 }
 
 .title {
-  font-size: clamp(14px, 2.5vw, 18px);
+  font-size: clamp(12px, 2vw, 18px);
   color: #6c757d;
-  margin: 8px 0 0;
+  margin: 5px 0 0;
   font-weight: 300;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
 }
 
 .contact-info p {
-  margin: 8px 0;
+  margin: 5px 0;
   display: flex;
   align-items: center;
   color: #495057;
   transition: all 0.3s ease;
-  font-size: clamp(12px, 2.5vw, 16px);
+  font-size: clamp(10px, 2vw, 16px);
   font-weight: 300;
 }
 
 .icon {
-  margin-right: 12px;
-  font-size: clamp(16px, 3vw, 20px);
+  margin-right: 8px;
+  font-size: clamp(14px, 2.5vw, 20px);
   color: #343a40;
   transition: all 0.3s ease;
+}
+
+.card-back .icon {
+  margin-right: 0;
+  margin-left: 8px;
+}
+
+/* Mobile styles (up to 639px) */
+@media (max-width: 639px) {
+  .card {
+    aspect-ratio: auto;
+    height: auto;
+    min-height: 400px;
+  }
+
+  .card-face {
+    flex-direction: column;
+  }
+
+  .left-section, .right-section {
+    padding: 15px;
+  }
+
+  .left-section {
+    flex: 0 0 auto;
+  }
+
+  .right-section {
+    flex: 1 1 auto;
+  }
+
+  .company-name {
+    margin: 5px 0;
+  }
+
+  .personal-info {
+    margin-bottom: 5px;
+  }
+
+  .contact-info p {
+    margin: 3px 0;
+  }
+}
+
+/* Tablet and larger styles (640px and above) */
+@media (min-width: 640px) {
+  .card {
+    aspect-ratio: 16 / 9;
+    height: auto;
+  }
+
+  .card-face {
+    flex-direction: row;
+  }
+
+  .left-section, .right-section {
+    width: 50%;
+    height: 100%;
+    justify-content: space-between;
+  }
+
+  .left-section {
+    padding-right: 20px;
+  }
+
+  .right-section {
+    padding-left: 20px;
+  }
+
+  .company-name {
+    margin: 15px 0;
+  }
+
+  .personal-info {
+    margin-bottom: 15px;
+  }
+
+  .contact-info p {
+    margin: 8px 0;
+  }
+}
+
+/* Additional styles for very small screens */
+@media (max-width: 380px) {
+  .card {
+    min-height: 450px;
+  }
+
+  .left-section, .right-section {
+    padding: 10px;
+  }
+
+  .company-name {
+    font-size: 16px;
+  }
+
+  .name {
+    font-size: 14px;
+  }
+
+  .title {
+    font-size: 10px;
+  }
+
+  .contact-info p {
+    font-size: 9px;
+  }
+
+  .icon {
+    font-size: 12px;
+  }
 }
 
 .card-back .icon {
